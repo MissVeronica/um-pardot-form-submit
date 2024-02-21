@@ -8,7 +8,7 @@ Extension to Ultimate Member for integration of Pardot Form Submit.
 4. Pardot Form Submit - Log Response - Click to log all Pardot Form Submits Responses for the User IDs to the meta_key = <code>um_pardot_form_response</code>
 
 ## Updates
-None
+1. Version 0.9.1 Tested with UM 2.8.3
 
 ## Installation and Updates
 Download the ZIP file and install as a WP Plugin, activate the plugin.
