@@ -2,7 +2,7 @@
 /**
  * Plugin Name:         Ultimate Member - Pardot Form Submit
  * Description:         Extension to Ultimate Member for integration of Pardot Form Submit.
- * Version:             0.9.0 beta
+ * Version:             0.9.1 beta
  * Requires PHP:        7.4
  * Author:              Miss Veronica
  * License:             GPL v3 or later
@@ -10,7 +10,7 @@
  * Author URI:          https://github.com/MissVeronica
  * Text Domain:         ultimate-member
  * Domain Path:         /languages
- * UM version:          2.8.2
+ * UM version:          2.8.3
  */
 
  if ( ! defined( 'ABSPATH' ) ) exit;
@@ -59,48 +59,51 @@ class UM_Pardot_Form_Submit {
                     }
                 }
             }
-		}
+        }
 	}
 
     public function um_settings_structure_pardot_form_submit( $settings_structure ) {
 
-        $settings_structure['appearance']['sections']['registration_form']['fields'][] =
+        $settings_structure['appearance']['sections']['registration_form']['form_sections']['pardot_form_submit']['title']       = __( 'Pardot Form Submit', 'ultimate-member' );
+        $settings_structure['appearance']['sections']['registration_form']['form_sections']['pardot_form_submit']['description'] = __( 'Plugin version 0.9.1 beta - tested with UM 2.8.3', 'ultimate-member' );
+
+        $settings_structure['appearance']['sections']['registration_form']['form_sections']['pardot_form_submit']['fields'][] =
 
                 array(
                     'id'            => 'um_pardot_form_submit_URL',
                     'type'          => 'text',
-                    'label'         => __( 'Pardot Form Submit - URL', 'ultimate-member' ),
-                    'tooltip'       => __( 'Enter the Pardot Form Submit\'s URL.', 'ultimate-member' ),
+                    'label'         => __( 'URL', 'ultimate-member' ),
+                    'description'   => __( 'Enter the Pardot Form Submit\'s URL.', 'ultimate-member' ),
                     'size'          => 'medium',
                 );
 
-        $settings_structure['appearance']['sections']['registration_form']['fields'][] =
+        $settings_structure['appearance']['sections']['registration_form']['form_sections']['pardot_form_submit']['fields'][] =
 
                 array(
                     'id'            => 'um_pardot_form_submit_forms',
                     'type'          => 'text',
-                    'label'         => __( 'Pardot Form Submit - Form IDs', 'ultimate-member' ),
-                    'tooltip'       => __( 'Enter the Registration Form IDs comma separated for Pardot Form Submit.', 'ultimate-member' ),
+                    'label'         => __( 'Form IDs', 'ultimate-member' ),
+                    'description'   => __( 'Enter the Registration Form IDs comma separated for Pardot Form Submit.', 'ultimate-member' ),
                     'size'          => 'medium',
                 );
 
-        $settings_structure['appearance']['sections']['registration_form']['fields'][] =
+        $settings_structure['appearance']['sections']['registration_form']['form_sections']['pardot_form_submit']['fields'][] =
 
                 array(
                     'id'            => 'um_pardot_form_submit_fields',
                     'type'          => 'text',
-                    'label'         => __( 'Pardot Form Submit - Form Fields', 'ultimate-member' ),
-                    'tooltip'       => __( 'Enter the Registration Form Fields comma separated for Pardot Form Submit.', 'ultimate-member' ),
+                    'label'         => __( 'Form Fields', 'ultimate-member' ),
+                    'description'   => __( 'Enter the Registration Form Fields comma separated for Pardot Form Submit.', 'ultimate-member' ),
                 );
 
-        $settings_structure['appearance']['sections']['registration_form']['fields'][] =
+        $settings_structure['appearance']['sections']['registration_form']['form_sections']['pardot_form_submit']['fields'][] =
 
                 array(
                     'id'            => 'um_pardot_form_submit_log',
                     'type'          => 'checkbox',
-                    'label'         => __( 'Pardot Form Submit - Log Response', 'ultimate-member' ),
+                    'label'         => __( 'Log Response', 'ultimate-member' ),
                     'default'       => 0,
-                    'tooltip'       => __( 'Click to log all Pardot Form Submits Responses for the User IDs to the meta_key = um_pardot_form_response', 'ultimate-member' ),
+                    'description'   => __( 'Click to log all Pardot Form Submits Responses for the User IDs to the meta_key = um_pardot_form_response', 'ultimate-member' ),
                 );
 
         return $settings_structure;
@@ -108,3 +111,4 @@ class UM_Pardot_Form_Submit {
 }
 
 new UM_Pardot_Form_Submit();
+
